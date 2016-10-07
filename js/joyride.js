@@ -71,8 +71,8 @@ var joyrideDirective = function($animate, joyrideService, $compile, $templateCac
           }
        });
         function appendJoyride(){
-          var template = $templateCache.get(scope.joyride.config.template) || $templateCache.get('ngJoyrideDefault.html');
-          console.log(template);
+          $templateRequest(scope.joyride.config.templateUrl, true);
+          var template = $templateCache.get(scope.joyride.config.template) || $templateCache.get(scope.joyride.config.templateUrl) || $templateCache.get('ngJoyrideDefault.html');
           if (scope.joyride.config.overlay !== false) {
             template += overlay;
           }
@@ -321,6 +321,7 @@ var joyrideDirective = function($animate, joyrideService, $compile, $templateCac
       config: {
         overlay: true,
         template: false,
+        templateUrl: '',
         steps : [],
         onStepChange: function(){},
         onFinish: function(){},
