@@ -57,7 +57,7 @@ function scrollToElement(to) {
   }
 }
 
-var joyrideDirective = function($animate, joyrideService, $compile, $templateCache, $timeout, $window){
+var joyrideDirective = function($animate, joyrideService, $compile, $templateCache, $timeout, $window, $templateRequest){
     return {
       restrict: 'E',
       scope: {},
@@ -353,6 +353,6 @@ app.filter('jr_trust', [
 ]);
 
 app.factory('joyrideService', [joyrideService]);
-app.directive('joyride', ['$animate', 'joyrideService', '$compile', '$templateCache', '$timeout', '$window', joyrideDirective]);
+app.directive('joyride', ['$animate', 'joyrideService', '$compile', '$templateCache', '$timeout', '$window', '$templateRequest', joyrideDirective]);
 
 })();
